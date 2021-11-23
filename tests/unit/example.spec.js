@@ -1,9 +1,9 @@
-// import { mount } from '@vue/test-utils'
-// import App from '@/App.vue'
+import { mount } from '@vue/test-utils'
+import App from '@/App.vue'
 
 import { huevo, espinaca } from "./jestTest";
 
-// const wrapper = mount(App)
+const wrapper = mount(App)
 
 // console.log(wrapper.element)
 
@@ -23,3 +23,12 @@ describe('Se probará la calidad de los productos', () => {
         })
     });
 });
+
+describe('Probar que se cambió la propiedad changeTest ', () => {
+
+    test('should click a button', () => {
+        const lastValue = wrapper.vm.changeTest
+        wrapper.find('button').trigger('click')
+        expect(wrapper.vm.changeTest).toBe(lastValue + 1)
+    })
+})
